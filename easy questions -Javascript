@@ -1,0 +1,51 @@
+pallindrome number:
+
+var isPalindrome = function(x) {
+    var half=0
+    //check if the number is 0 or multiple of 10
+    if( x === 0 && x %10===0){
+      return false
+    }
+    while(x>half){
+        half=half*10 + x%10
+        x=Math.floor(x/10)
+    }
+    //this will loop unitll the number goes untill its half size
+
+    return x===half || x === Math.floor(half) //return true or false based on condition 
+};
+Math.floor -return the number in integer form
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Two sum:
+
+//you will be given with the array and a target and you want to return those indices where combing those values must be addded
+//and should give you the target and its given that we have only one solution
+
+
+var twoSum(arr,target){
+    let arrResult=[]
+    for(let i=0;i<arr.length;i++){
+        if(arrResult.includes(arr[i])){
+            return [arrResult.indexOf(arr[i]),i]
+        }
+        arr.push(target-arr[i]);
+  }
+}
+-- second approach using map 
+
+var twoSum = function(nums, target) {
+    let map=new Map()
+    --map looks like -> { target-nums[i] =>0, target-nums[i] =>1 }
+    for(let i=0;i<nums.length;i++){
+        let diff=target-nums[i]
+
+        if(map.has(diff)){
+            return [i,map.get(diff)]
+        }
+
+        map.set(nums[i],i)
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
